@@ -20,3 +20,37 @@ Highlighted richer examples in this repo include:
 - `plugins/build-web-apps` for deployment, UI, payments, and database workflows
 - `plugins/expo` for Expo and React Native apps, SDK upgrades, EAS workflows, and Codex Run actions
 - `plugins/netlify`, `plugins/remotion`, and `plugins/google-slides` for additional public skill- and MCP-backed plugin bundles
+
+## Claude Code
+
+`.claude-plugin/marketplace.json` exposes the same plugins as a Claude Code
+marketplace named `codex-plugins`:
+
+```
+/plugin marketplace add <path-or-github-repo>
+/plugin install linear@codex-plugins
+```
+
+The file is generated from `.agents/plugins/marketplace.json` and the
+`.codex-plugin/plugin.json` manifests. Regenerate it after syncing plugins:
+
+```
+python3 scripts/generate_claude_marketplace.py
+python3 scripts/generate_claude_marketplace.py --check  # fails if stale
+```
+
+Claude Code auto-discovers each plugin's `skills/`, `commands/`, `agents/*.md`,
+and `.mcp.json`. The generator adds inline MCP overrides where the Codex config
+doesn't work in Claude Code: stdio servers get `${CLAUDE_PLUGIN_ROOT}`-anchored
+paths, and `bearer_token_env_var` becomes an `Authorization` header.
+
+Limitations:
+
+- ChatGPT apps (`.app.json`) have no Claude Code equivalent. Plugins that only
+  ship an app (lovable, outlook-calendar, outlook-email, sharepoint, teams) are
+  left out.
+- Remote MCP servers use Claude Code's OAuth flow. Servers without dynamic
+  client registration won't authenticate (Zoom confirmed; likely also the
+  Google servers, whose Codex config uses placeholder client IDs).
+- The GitHub MCP server needs `GITHUB_PAT_TOKEN` set.
+- Some skills and commands reference Codex-specific tooling.
