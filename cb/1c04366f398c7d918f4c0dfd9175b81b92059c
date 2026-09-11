@@ -1,0 +1,24 @@
+README.md
+  s_86fc052dab28ac::t_3f838bd503e647 53-54
+  s_86fc052dab28ac::t_a2453dee8601f9 23-52,55-56
+.claude-plugin/marketplace.json
+  s_86fc052dab28ac::t_ed35e8a9da0e56 1-1502
+scripts/generate_claude_marketplace.py
+  s_86fc052dab28ac::t_272dcffecbe8e6 1-193
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "cb1c04366f398c7d918f4c0dfd9175b81b92059c",
+  "prompts": {},
+  "sessions": {
+    "s_86fc052dab28ac": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "98be6e44-0961-414b-bd13-758b3864efe5",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Richard Tuin <richardtuin@gmail.com>"
+    }
+  }
+}
