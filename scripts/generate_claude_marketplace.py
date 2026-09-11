@@ -26,7 +26,7 @@ CODEX_MARKETPLACE_PATH = REPO_ROOT / ".agents" / "plugins" / "marketplace.json"
 CLAUDE_MARKETPLACE_PATH = REPO_ROOT / ".claude-plugin" / "marketplace.json"
 
 MARKETPLACE_NAME = "codex-plugins"
-MARKETPLACE_OWNER = {"name": "Richard Tuin"}
+MARKETPLACE_OWNER = {"name": "OpenAI"}
 MARKETPLACE_DESCRIPTION = (
     "Claude Code marketplace for the curated OpenAI Codex plugins in this repository."
 )

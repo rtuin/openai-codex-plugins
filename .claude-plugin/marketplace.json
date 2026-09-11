@@ -1,7 +1,7 @@
 {
   "name": "codex-plugins",
   "owner": {
-    "name": "Richard Tuin"
+    "name": "OpenAI"
   },
   "description": "Claude Code marketplace for the curated OpenAI Codex plugins in this repository.",
   "plugins": [
